@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
  [RequireComponent(typeof(Rigidbody2D))]
 public class movimiento : MonoBehaviour
@@ -30,9 +31,8 @@ public class movimiento : MonoBehaviour
 
         if (collider.gameObject.CompareTag("Daño"))
         {
-            Destroy(collider.gameObject);
+            Destroy(gameObject);
         }
-
     }
 
 }
