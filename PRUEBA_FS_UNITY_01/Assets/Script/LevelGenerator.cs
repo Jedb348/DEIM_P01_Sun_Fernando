@@ -20,8 +20,8 @@ public class LevelGenerator : MonoBehaviour
     {
         
     }
-    public static void AddNewPiece()
+    public static void AddNewPiece(Vector3 spawnPosition)
     {
-        Instantiate(instance.piece[Random.Range(0, instance.piece.Count)], new Vector3(0, -23, 0), Quaternion.identity);
+        Instantiate(instance.piece[Random.Range(0, instance.piece.Count)], spawnPosition, Quaternion.identity);
     }
 }

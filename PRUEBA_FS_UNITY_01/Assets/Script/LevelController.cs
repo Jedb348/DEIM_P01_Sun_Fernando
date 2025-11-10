@@ -3,7 +3,7 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     public float speed = 5f;
-    
+    public float size;
     private void Start()
     {
 
@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Mapa"))
         {
-            LevelGenerator.AddNewPiece();
+            LevelGenerator.AddNewPiece(transform.position - new Vector3(0,size,0));
         }
     }
 }

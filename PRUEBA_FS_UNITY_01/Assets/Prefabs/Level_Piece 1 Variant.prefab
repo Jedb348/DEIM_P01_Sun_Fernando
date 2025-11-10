@@ -152,9 +152,25 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[19].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 1380841439638473108, guid: b0bac59c6fa0ad84c85a022395a6c368, type: 3}
+      propertyPath: size
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250441208966482980, guid: b0bac59c6fa0ad84c85a022395a6c368, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3250441208966482980, guid: b0bac59c6fa0ad84c85a022395a6c368, type: 3}
       propertyPath: m_Name
       value: Level_Piece 1 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318479527694240688, guid: b0bac59c6fa0ad84c85a022395a6c368, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3318479527694240688, guid: b0bac59c6fa0ad84c85a022395a6c368, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 3987104195439686341, guid: b0bac59c6fa0ad84c85a022395a6c368, type: 3}
       propertyPath: m_Tiles.Array.size
