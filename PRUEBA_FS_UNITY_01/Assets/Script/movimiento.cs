@@ -25,6 +25,7 @@ public class movimiento : MonoBehaviour
     private void FixedUpdate()
     {
         MoviminetoScreen();
+        AumentodeVel();
         //FingerMovement();
         //rb.linearVelocity = new Vector2(Movimiento * Velocidad, rb.linearVelocity.y * Time.deltaTime);
     }
@@ -72,7 +73,7 @@ public class movimiento : MonoBehaviour
     {
         if (Velocidad < 20)
         {
-            Velocidad = (float)(Velocidad + 0.1);
+            Velocidad = (float)(Velocidad + 0.1 * Time.deltaTime);
         }
     }
 }
