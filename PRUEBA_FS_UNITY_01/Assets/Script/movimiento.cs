@@ -1,12 +1,20 @@
 using Unity.Mathematics;
 using UnityEngine;
- [RequireComponent(typeof(Rigidbody2D))]
+using UnityEngine.SceneManagement;
+using DG.Tweening;
+[RequireComponent(typeof(Rigidbody2D))]
 public class movimiento : MonoBehaviour
 {
     public Rigidbody2D rb;
     public static float Velocidad = 3;
     public float Movimiento;
     public static movimiento movi;
+    public Transform Protagonista;
+    public Ease ease;
+    public GameObject Particles;
+    public GameObject Sombra;
+    public float JumpTime;
+    private bool Saltando = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,26 +43,38 @@ public class movimiento : MonoBehaviour
         if (collider.gameObject.CompareTag("Daño"))
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("Escena_1");
+        }
+        if (collider.gameObject.CompareTag("Rampa"))
+        {
+            Protagonista.DOScale(1.5f, 0.5f).SetEase(ease);
+            Particles.SetActive(false);
+            Sombra.SetActive(true);
+            Saltando = true;
+            Invoke("Finsalto", 1.0f);
         }
     }
     void MoviminetoScreen()
     {
-        if (Input.touchCount > 0)
+        if (Saltando == false)
         {
-            float TouchScreenPositionX = Input.touches[0].position.x;
-            float ScreenCenter = Screen.width / 2;
-            if (TouchScreenPositionX > ScreenCenter)
+            if (Input.touchCount > 0)
             {
-                rb.linearVelocityX = Velocidad;
+                float TouchScreenPositionX = Input.touches[0].position.x;
+                float ScreenCenter = Screen.width / 2;
+                if (TouchScreenPositionX > ScreenCenter)
+                {
+                    rb.linearVelocityX = Velocidad;
+                }
+                else
+                {
+                    rb.linearVelocityX = -Velocidad;
+                }
             }
             else
             {
-                rb.linearVelocityX = -Velocidad;
+                rb.linearVelocityX = 0;
             }
-        }
-        else
-        {
-            rb.linearVelocityX = 0;
         }
     }
     void FingerMovement() 
@@ -75,5 +95,12 @@ public class movimiento : MonoBehaviour
         {
             Velocidad = (float)(Velocidad + 0.1 * Time.deltaTime);
         }
+    }
+    void Finsalto()
+    {
+        Protagonista.DOScale(1, 0.5f).SetEase(ease);
+        Particles.SetActive(true);
+        Sombra.SetActive(false);
+        Saltando = false;
     }
 }

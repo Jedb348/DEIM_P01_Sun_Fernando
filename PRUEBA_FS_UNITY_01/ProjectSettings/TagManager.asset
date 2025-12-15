@@ -7,6 +7,7 @@ TagManager:
   - EliminarMap
   - Mapa
   - "Da\xF1o"
+  - Rampa
   layers:
   - Default
   - TransparentFX
